@@ -3,7 +3,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-mf@th4&vlrh77ujw1@o77mpu8na@!#-gkjbq3236xu==*+()#9'
 DEBUG = True
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.onrender.com', '.edwardzou.com']
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -85,6 +85,10 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static')
 ]
 
-
+# Add CSRF Trusted Origins and disable CSRF related secure check
+CSRF_TRUSTED_ORIGINS = ['https://www.edwardzou.com', 'http://www.edwardzou.com', 'https://edwardzou.com', 'http://edwardzou.com']
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
